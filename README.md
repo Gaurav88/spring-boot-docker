@@ -12,6 +12,10 @@ $ docker image ls
 
 <b>Run Docker Image</b>
 
-$ docker run -p 9090:8080 spring-boot-docker.jar
+$ docker run -p 9090:8080 -e "JAVA_OPTS=-Ddebug -Xmx128m" spring-boot-docker.jar
 
 In the run command, we have specified that the port 8080 on the container should be mapped to the port 9090 on the Host OS.
+
+Another way to build is -
+
+./gradlew bootBuildImage --imageName=spring-boot-docker.jar
